@@ -60,5 +60,5 @@ stages:
       displayName: 'echo Global Variables'
     - script: |
         echo Environment ${{ parameters.Environment }}
-        echo lowerEnvironment ${{ Environment }}
+        echo lowerEnvironment ${{ lowerEnvironment }}
       displayName: 'echo Parameters'
