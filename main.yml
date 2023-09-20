@@ -47,15 +47,13 @@ stages:
         echo ServiceConnectionName $(ServiceConnectionName)
       displayName: 'echo Build Number'
     - powershell: |
-        Try{Write-Output "AzSubscriptionID should be visible:"}catch{$PSItem}
-        Try{Write-Output "AzSubscriptionID $(AzSubscriptionID)"}catch{$PSItem}
-        Try{Write-Output "ServiceConnectionName Should be visible:"}catch{$PSItem}
-        Try{Write-Output "ServiceConnectionName $(ServiceConnectionName)"}catch{$PSItem}
-      displayName: 'Write-Output Pipeline Library'
-    - powershell: |
-        Try{Write-Output "AZRMServiceConnectionName $(AZRMServiceConnectionName)"}catch{$PSItem}
-        Try{Write-Output "DeploymentDefaultLocation $(DeploymentDefaultLocation)"}catch{$PSItem}
-      displayName: 'Write-Output Global Variables'
-    - powershell: |
-        Try{Write-Output "Environment ${{ parameters.Environment }}"}catch{$PSItem}
-      displayName: 'Write-Output Parameters'
+        # Using an input-macro:
+        Write-Host "This works: $(VMAdminPWD)"
+
+        # Using the env var directly:
+        Write-Host "This does not work: $env:VMAdminPWD"
+
+        # Using the mapped env var:
+        Write-Host "This works: $env:MY_MAPPED_ENV_VAR"    # Recommended
+      env:
+        MY_MAPPED_ENV_VAR: $(VMAdminPWD)
