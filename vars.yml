@@ -2,4 +2,4 @@
 variables:
   favoriteVeggie: 'Brussels Sprouts'
   lowerEnvironment1: ${{ lower(parameters.Environment) }}
-  lowerEnvironment2: $[ lower(parameters.Environment) ]
+#  lowerEnvironment2: $[ lower(parameters.Environment) ]
