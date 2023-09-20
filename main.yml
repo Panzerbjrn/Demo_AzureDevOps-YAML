@@ -25,12 +25,10 @@ parameters:
   - QA
   - PRD
 
+#- group: GlobalVariables
 variables:
-- group: GlobalVariables
-#- name: DeploymentDefaultLocation
-#  value: 'westeurope'
-#- name: AZRMServiceConnectionName
-#  value: 'ARMConnection'
+  DeploymentDefaultLocation: 'westeurope'
+  AZRMServiceConnectionName: 'ARMConnection'
   lowerEnvironment: ${{ lower(parameters.Environment) }}
   ServiceConnectionName: 'ARMConnection'
 
