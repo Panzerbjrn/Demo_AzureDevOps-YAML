@@ -36,7 +36,7 @@ stages:
 - stage: Stage1
   displayName: "Stage 1"
   jobs:
-  - job: 'echo Variables'
+  - job: 'echoVariables'
     strategy:
       maxParallel: 2
     steps:
