@@ -30,7 +30,6 @@ variables:
   DeploymentDefaultLocation: 'westeurope'
   AZRMServiceConnectionName: 'ARMConnection'
   lowerEnvironment: ${{ lower(parameters.Environment) }}
-  ServiceConnectionName: 'ARMConnection'
 
 stages:
 - stage: Stage1
