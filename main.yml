@@ -41,8 +41,8 @@ stages:
       maxParallel: 2
     steps:
     - script: |
-        Write-Output Buildnumber $(Build.BuildNumber)
-      displayName: 'Write-Output Build Number'
+        echo Buildnumber $(Build.BuildNumber)
+      displayName: 'echo Build Number'
     - powershell: |
         Try{Write-Output AzSubscriptionID should be visible:}catch{$PSItem}
         Try{Write-Output AzSubscriptionID $(AzSubscriptionID)}catch{$PSItem}
