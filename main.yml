@@ -31,17 +31,8 @@ variables:
   value: 'westeurope'
 - name: AZRMServiceConnectionName
   value: 'ARMConnection'
-
-variables:
   lowerEnvironment: ${{ lower(parameters.Environment) }}
-  Prefix: ${{ lower('TFAZDO') }}
-  DeploymentDefaultLocation: 'westeurope'
   ServiceConnectionName: 'ARMConnection'
-  TerraformDirectory: "${{ lower(parameters.Environment) }}-dir"
-  AzureSubscriptionServiceConnectionName: $(ServiceConnectionName)
-  TerraformStateStorageAccountResourceGroupName: "$(Prefix)-${{ lower(parameters.Environment) }}-rg"
-  TerraformStateStorageAccountName: "$(Prefix)-${{ lower(parameters.Environment) }}-sa"
-  TerraformStateStorageAccountContainerName: "$(Prefix)-${{ lower(parameters.Environment) }}-cont"
 
 stages:
 - stage: Stage1
