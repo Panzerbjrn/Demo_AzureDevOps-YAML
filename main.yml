@@ -42,9 +42,6 @@ stages:
         echo Buildnumber $(Build.BuildNumber)
       displayName: 'echo Build Number'
     - script: |
-        echo VMAdminPWD should be hidden:
-        echo VMAdminPWD $(VMAdminPWD)
-        echo VMAdminPWD ${{ VMAdminPWD }}
         echo AzSubscriptionID should be visible:
         echo AzSubscriptionID $(AzSubscriptionID)
         echo AzSubscriptionID ${{ AzSubscriptionID }}
