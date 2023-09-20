@@ -27,6 +27,7 @@ parameters:
 
 #- group: GlobalVariables
 variables:
+- template: vars.yml  # Template reference  
   DeploymentDefaultLocation: 'westeurope'
   AZRMServiceConnectionName: 'ARMConnection'
   lowerEnvironment: ${{ lower(parameters.Environment) }}
