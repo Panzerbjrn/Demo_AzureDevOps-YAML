@@ -26,11 +26,9 @@ parameters:
   - PRD
 
 variables:
-#- group: GlobalVariables
-#- name: DeploymentDefaultLocation
-#  value: 'westeurope'
-#- name: AZRMServiceConnectionName
-#  value: 'ARMConnection'
+- group: GlobalVariables
+  DeploymentDefaultLocation: 'westeurope'
+  AZRMServiceConnectionName: 'ARMConnection'
   lowerEnvironment: ${{ lower(parameters.Environment) }}
   ServiceConnectionName: 'ARMConnection'
 
@@ -46,10 +44,13 @@ stages:
     - script: |
         echo VMAdminPWD should be hidden:
         echo VMAdminPWD $(VMAdminPWD)
+        echo VMAdminPWD ${{ VMAdminPWD }}
         echo AzSubscriptionID should be visible:
         echo AzSubscriptionID $(AzSubscriptionID)
+        echo AzSubscriptionID ${{ AzSubscriptionID }}
         echo ServiceConnectionName Should be visible:
         echo ServiceConnectionName $(ServiceConnectionName)
+        echo ServiceConnectionName ${{ ServiceConnectionName}}
       displayName: 'echo Pipeline Library'
     - script: |
         echo AZRMServiceConnectionName $(AZRMServiceConnectionName)
@@ -57,5 +58,5 @@ stages:
       displayName: 'echo Global Variables'
     - script: |
         echo Environment ${{ parameters.Environment }}
-        echo environment ${{ parameters.environment }}
+        echo lowerEnvironment ${{ lowerEnvironment }}
       displayName: 'echo Parameters'
