@@ -1,6 +1,7 @@
 # File: vars.yml
 variables:
   favoriteVeggie: 'brussels sprouts'
-  DeploymentDefaultLocation: 'westeurope'
-  AZRMServiceConnectionName: 'ARMConnection'
-  lowerEnvironment: ${{ lower(parameters.Environment) }}
+  lowerEnvironment1: ${{ lower(parameters.Environment) }}
+  lowerEnvironment2: $[ lower(parameters.Environment) ]
+
+  
