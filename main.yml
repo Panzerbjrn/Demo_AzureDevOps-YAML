@@ -45,6 +45,7 @@ stages:
       displayName: 'echo Build.BuildNumber'
     - script: |
         echo My favorite vegetable is ${{ variables.favoriteVeggie }}
+        echo favoriteVeggie is $(variables.favoriteVeggie)
         echo favoriteVeggie is $(favoriteVeggie)
         echo lowerEnvironment1 is $(lowerEnvironment1)
         echo lowerEnvironment2 is $(lowerEnvironment2)
@@ -60,5 +61,7 @@ stages:
       displayName: 'echo Library Groups'
     - script: |
         echo Region is $(Region)
+        echo Region is $(parameters.Region)
         echo Environment is $(Environment)
+        echo Environment is $(parameters.Environment)
       displayName: 'echo parameters'
