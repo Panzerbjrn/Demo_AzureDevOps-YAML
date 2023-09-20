@@ -27,7 +27,7 @@ parameters:
 
 #- group: GlobalVariables
 variables:
-- template: vars.yml  # Template reference  
+#- template: vars.yml  # Template reference  
   DeploymentDefaultLocation: 'westeurope'
   AZRMServiceConnectionName: 'ARMConnection'
   lowerEnvironment: ${{ lower(parameters.Environment) }}
@@ -42,6 +42,9 @@ stages:
     steps:
     - script: |
         echo Buildnumber $(Build.BuildNumber)
+        echo VMAdminPWD $(VMAdminPWD)
+        echo AzSubscriptionID $(AzSubscriptionID)
+        echo ServiceConnectionName $(ServiceConnectionName)
       displayName: 'echo Build Number'
     - powershell: |
         Try{Write-Output "AzSubscriptionID should be visible:"}catch{$PSItem}
