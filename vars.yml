@@ -1,5 +1,6 @@
 # File: vars.yml
 variables:
   favoriteVeggie: 'Brussels Sprouts'
+  Environment1: ${{ parameters.Environment }}
   lowerEnvironment1: ${{ lower(parameters.Environment) }}
 #  lowerEnvironment2: $[ lower(parameters.Environment) ]
