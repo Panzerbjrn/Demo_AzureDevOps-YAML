@@ -46,12 +46,6 @@ stages:
     - script: |
         echo My favorite vegetable is ${{ variables.favoriteVeggie }}
         echo favoriteVeggie is $(favoriteVeggie)
-        echo favoriteVeggieSmall is $(favoriteVeggieSmall)
-        echo lowerEnvironment1 is $(lowerEnvironment1)
-        echo lowerEnvironment2 is $(lowerEnvironment2)
-        echo lowerEnvironment1 variable is ${{ variables.lowerEnvironment1 }}
-        echo lowerEnvironment2 variable is ${{ variables.lowerEnvironment2 }}
-        echo Environment1 variable is ${{ variables.Environment1 }}
       displayName: 'echo vars.yml'
     - script: |
         echo VMAdminPWD $(VMAdminPWD)
@@ -63,4 +57,5 @@ stages:
     - script: |
         echo Region is ${{ parameters.Region }}
         echo Environment is ${{ parameters.Environment }}
+        echo lowerEnvironment is ${{ lower(parameters.Environment) }}
       displayName: 'echo parameters'
