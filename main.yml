@@ -58,5 +58,4 @@ stages:
     - script: |
         echo Environment ${{ parameters.Environment }}
         echo environment ${{ parameters.environment }}
-        echo CustomerID ${{ parameters.CustomerID }}
       displayName: 'echo Parameters'
