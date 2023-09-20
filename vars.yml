@@ -1,5 +1,5 @@
 # File: vars.yml
-ymlvariables:
+variables:
   favoriteVeggie: 'brussels sprouts'
   DeploymentDefaultLocation: 'westeurope'
   AZRMServiceConnectionName: 'ARMConnection'
