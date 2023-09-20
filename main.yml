@@ -62,6 +62,8 @@ stages:
     - script: |
         echo Region is $(Region)
         echo Region is $(parameters.Region)
+        echo Region is ${{ parameters.Region }}
         echo Environment is $(Environment)
         echo Environment is $(parameters.Environment)
+        echo Environment is ${{ parameters.Environment }}
       displayName: 'echo parameters'
