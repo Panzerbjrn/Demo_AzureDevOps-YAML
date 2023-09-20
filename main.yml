@@ -56,3 +56,7 @@ stages:
         echo TestVar1 $(TestVar1)
         echo TestVar2 $(TestVar2)
       displayName: 'echo Library Groups'
+    - script: |
+        echo Region is $(Region)
+        echo Environment is $(Environment)
+      displayName: 'echo parameters'
