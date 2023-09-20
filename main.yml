@@ -36,7 +36,7 @@ stages:
 - stage: Stage1
   displayName: "Stage 1"
   jobs:
-  - job: Write-Output Variables
+  - job: Write_Output_Variables
     strategy:
       maxParallel: 2
     steps:
