@@ -1,3 +1,6 @@
 # File: vars.yml
 ymlvariables:
   favoriteVeggie: 'brussels sprouts'
+  DeploymentDefaultLocation: 'westeurope'
+  AZRMServiceConnectionName: 'ARMConnection'
+  lowerEnvironment: ${{ lower(parameters.Environment) }}

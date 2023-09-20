@@ -27,33 +27,23 @@ parameters:
 
 #- group: GlobalVariables
 variables:
-#- template: vars.yml  # Template reference  
-  DeploymentDefaultLocation: 'westeurope'
-  AZRMServiceConnectionName: 'ARMConnection'
-  lowerEnvironment: ${{ lower(parameters.Environment) }}
+- template: vars.yml  # Template reference  
+- group: GlobalVariables
+- group: Group-1
+- group: Group-2
 
 stages:
 - stage: Stage1
   displayName: "Stage 1"
   jobs:
-  - job: Write_Output_Variables
+  - job: 'echo Variables'
     strategy:
       maxParallel: 2
     steps:
     - script: |
         echo Buildnumber $(Build.BuildNumber)
         echo VMAdminPWD $(VMAdminPWD)
+        echo favoriteVeggie $(ymlvariables.favoriteVeggie)
         echo AzSubscriptionID $(AzSubscriptionID)
         echo ServiceConnectionName $(ServiceConnectionName)
-      displayName: 'echo Build Number'
-    - powershell: |
-        # Using an input-macro:
-        Write-Host "This works: $(VMAdminPWD)"
-
-        # Using the env var directly:
-        Write-Host "This does not work: $env:VMAdminPWD"
-
-        # Using the mapped env var:
-        Write-Host "This works: $env:MY_MAPPED_ENV_VAR"    # Recommended
-      env:
-        MY_MAPPED_ENV_VAR: $(VMAdminPWD)
+      displayName: 'echo Variables'
