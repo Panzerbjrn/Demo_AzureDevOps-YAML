@@ -43,7 +43,7 @@ stages:
     - script: |
         echo Buildnumber $(Build.BuildNumber)
         echo VMAdminPWD $(VMAdminPWD)
-        echo favoriteVeggie $(variables.favoriteVeggie)
+        echo favoriteVeggie $(favoriteVeggie)
         echo AzSubscriptionID $(AzSubscriptionID)
         echo ServiceConnectionName $(ServiceConnectionName)
       displayName: 'echo Variables'
