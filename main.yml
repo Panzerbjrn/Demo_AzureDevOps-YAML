@@ -55,5 +55,4 @@ stages:
       displayName: 'Write-Output Global Variables'
     - powershell: |
         Try{Write-Output Environment ${{ parameters.Environment }}}catch{$PSItem}
-        Try{Write-Output lowerEnvironment ${{ lowerEnvironment }}}catch{$PSItem}
       displayName: 'Write-Output Parameters'
