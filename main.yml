@@ -45,8 +45,9 @@ stages:
       displayName: 'echo Build.BuildNumber'
     - script: |
         echo My favorite vegetable is ${{ variables.favoriteVeggie }}
-        echo favoriteVeggie $(favoriteVeggie)
-        echo lowerEnvironment $(lowerEnvironment)
+        echo favoriteVeggie is $(favoriteVeggie)
+        echo lowerEnvironment is $(lowerEnvironment)
+        echo lowerEnvironment variable is $(variables.lowerEnvironment)
       displayName: 'echo vars.yml'
     - script: |
         echo VMAdminPWD $(VMAdminPWD)
