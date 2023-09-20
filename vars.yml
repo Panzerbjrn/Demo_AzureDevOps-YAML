@@ -1,3 +1,4 @@
 # File: vars.yml
 variables:
-  favoriteVeggie: 'Brussels Sprouts'
+  VarsVar1: 'VarsVar1valueaddedtext'
+  VarsVar2: 'VarsVar2valueaddedtext'
