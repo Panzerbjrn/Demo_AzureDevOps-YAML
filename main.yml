@@ -44,7 +44,7 @@ stages:
         echo Buildnumber $(Build.BuildNumber)
       displayName: 'echo Build.BuildNumber'
     - script: |
-        echo VarsVar1 is  ${{ variables.VarsVar1 }}
+        echo VarsVar1 is ${{ variables.VarsVar1 }}
         echo VarsVar2 is $(VarsVar2)
       displayName: 'echo vars.yml'
     - script: |
