@@ -36,24 +36,26 @@ stages:
 - stage: Stage1
   displayName: "Stage 1"
   jobs:
-  - job:
+  - job: Write-Output Variables
+    strategy:
+      maxParallel: 2
     steps:
     - script: |
-        echo Buildnumber $(Build.BuildNumber)
-      displayName: 'echo Build Number'
-    - script: |
-        echo AzSubscriptionID should be visible:
-        echo AzSubscriptionID $(AzSubscriptionID)
-        echo AzSubscriptionID ${{ AzSubscriptionID }}
-        echo ServiceConnectionName Should be visible:
-        echo ServiceConnectionName $(ServiceConnectionName)
-        echo ServiceConnectionName ${{ ServiceConnectionName}}
-      displayName: 'echo Pipeline Library'
-    - script: |
-        echo AZRMServiceConnectionName $(AZRMServiceConnectionName)
-        echo DeploymentDefaultLocation $(DeploymentDefaultLocation)
-      displayName: 'echo Global Variables'
-    - script: |
-        echo Environment ${{ parameters.Environment }}
-        echo lowerEnvironment ${{ lowerEnvironment }}
-      displayName: 'echo Parameters'
+        Write-Output Buildnumber $(Build.BuildNumber)
+      displayName: 'Write-Output Build Number'
+    - powershell: |
+        Try{Write-Output AzSubscriptionID should be visible:}catch{$PSItem}
+        Try{Write-Output AzSubscriptionID $(AzSubscriptionID)}catch{$PSItem}
+        Try{Write-Output AzSubscriptionID ${{ AzSubscriptionID }}}catch{$PSItem}
+        Try{Write-Output ServiceConnectionName Should be visible:}catch{$PSItem}
+        Try{Write-Output ServiceConnectionName $(ServiceConnectionName)}catch{$PSItem}
+        Try{Write-Output ServiceConnectionName ${{ ServiceConnectionName}}}catch{$PSItem}
+      displayName: 'Write-Output Pipeline Library'
+    - powershell: |
+        Try{Write-Output AZRMServiceConnectionName $(AZRMServiceConnectionName)}catch{$PSItem}
+        Try{Write-Output DeploymentDefaultLocation $(DeploymentDefaultLocation)}catch{$PSItem}
+      displayName: 'Write-Output Global Variables'
+    - powershell: |
+        Try{Write-Output Environment ${{ parameters.Environment }}}catch{$PSItem}
+        Try{Write-Output lowerEnvironment ${{ lowerEnvironment }}}catch{$PSItem}
+      displayName: 'Write-Output Parameters'
