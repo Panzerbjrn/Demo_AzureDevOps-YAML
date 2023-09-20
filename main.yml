@@ -26,9 +26,11 @@ parameters:
   - PRD
 
 variables:
-#- group: GlobalVariables
-  DeploymentDefaultLocation: 'westeurope'
-  AZRMServiceConnectionName: 'ARMConnection'
+- group: GlobalVariables
+#- name: DeploymentDefaultLocation
+#  value: 'westeurope'
+#- name: AZRMServiceConnectionName
+#  value: 'ARMConnection'
   lowerEnvironment: ${{ lower(parameters.Environment) }}
   ServiceConnectionName: 'ARMConnection'
 
@@ -58,5 +60,5 @@ stages:
       displayName: 'echo Global Variables'
     - script: |
         echo Environment ${{ parameters.Environment }}
-        echo lowerEnvironment ${{ lowerEnvironment }}
+        echo lowerEnvironment ${{ Environment }}
       displayName: 'echo Parameters'
