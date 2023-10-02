@@ -25,7 +25,6 @@ parameters:
   - QA
   - PRD
 
-#- group: GlobalVariables
 variables:
 - template: vars.yml  # Template reference  
 - group: GlobalVariables
